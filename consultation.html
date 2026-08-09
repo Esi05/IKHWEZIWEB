@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hair Consultation | IKHWEZI Hair Care Products</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+
+        <div class="logo">
+            <h2>IKHWEZI Hair Care Products</h2>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+
+                <li>
+                    <a href="products.html">Products</a>
+                </li>
+
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+
+                <li>
+                    <a href="enquiry.html">Enquiry</a>
+                </li>
+
+                <li>
+                    <a href="consultation.html">Hair Consultation</a>
+                </li>
+
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <!-- ================= INTRODUCTION ================= -->
+    <section class="consultation-intro">
+
+        <h1 style="color: darkgreen; font-size: 24px;">
+            Hair Consultation
+        </h1>
+
+        <p style="color: darkgreen; font-size: 18px;">
+            Tell us about your hair and scalp so we can help you
+            find suitable IKHWEZI hair care products.
+        </p>
+
+
+
+    </section>
+
+
+    <!-- ================= CONSULTATION FORM ================= -->
+    <section class="consultation-section">
+
+        <div class="consultation-form">
+
+            <h2 style="color: darkgreen; font-size: 24px;">Tell Us About Your Hair</h2>
+
+            <form action="#" method="post">
+
+                <!-- Full Name -->
+                <label for="name">Full Name:</label>
+<br>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                ><br>
+
+
+                <!-- Email -->
+                <label for="email">Email Address:</label>
+<br>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    required
+                ><br>
+
+
+                <!-- Phone -->
+                <label for="phone">Phone Number:</label>
+<br>
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter your phone number"
+                    required
+                ><br>
+
+
+                <!-- Hair Type -->
+                <label for="hair-type">What is your hair type?</label>
+<br>
+                <select id="hair-type" name="hair-type" required>
+
+                    <option value="">
+                        -- Select Hair Type --
+                    </option>
+<br>
+                    <option value="natural">
+                        Natural Hair
+                    </option>
+
+                    <option value="relaxed">
+                        Relaxed Hair
+                    </option>
+
+                    <option value="braided">
+                        Braided Hair
+                    </option>
+
+                    <option value="locs">
+                        Locs
+                    </option>
+
+                    <option value="curly">
+                        Curly Hair
+                    </option>
+
+                    <option value="straight">
+                        Straight Hair
+                    </option>
+
+                    <option value="other">
+                        Other
+                    </option>
+
+                </select>
+<br><br>
+
+                <!-- Hair Concern -->
+                <label>
+                    What is your main hair concern?
+                </label>
+
+                <div class="checkbox-group">
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="concern"
+                            value="hair-growth"
+                        >
+                        Hair Growth
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="concern"
+                            value="dandruff"
+                        >
+                        Dandruff
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="concern"
+                            value="dry-scalp"
+                        >
+                        Dry Scalp
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="concern"
+                            value="breakage"
+                        >
+                        Hair Breakage
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="concern"
+                            value="damaged-hairline"
+                        >
+                        Damaged Hairline
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="concern"
+                            value="dry-hair"
+                        >
+                        Dry Hair
+                    </label>
+
+                </div>
+<br><br>
+
+                <!-- Hair Condition -->
+                <label for="hair-condition">
+                    How would you describe your hair?
+                </label>
+
+                <select
+                    id="hair-condition"
+                    name="hair-condition"
+                    required
+                >
+
+                    <option value="">
+                        -- Select One --
+                    </option>
+
+                    <option value="healthy">
+                        Healthy
+                    </option>
+
+                    <option value="dry">
+                        Dry
+                    </option>
+
+                    <option value="damaged">
+                        Damaged
+                    </option>
+
+                    <option value="weak">
+                        Weak
+                    </option>
+
+                    <option value="oily">
+                        Oily
+                    </option>
+
+                </select>
+<br><br>
+
+                <!-- Current Products -->
+                <label for="current-products">
+                    What hair products are you currently using?
+                </label>
+
+                <textarea
+                    id="current-products"
+                    name="current-products"
+                    rows="4"
+                    placeholder="Tell us about the products you currently use..."
+                ></textarea>
+<br><br>
+
+                <!-- Hair Goal -->
+                <label for="hair-goal">
+                    What is your main hair goal?
+                </label>
+
+                <textarea
+                    id="hair-goal"
+                    name="hair-goal"
+                    rows="4"
+                    placeholder="For example: I want longer, stronger and healthier hair."
+                    required
+                ></textarea>
+<br><br>
+
+                <!-- Additional Information -->
+                <label for="additional-info">
+                    Additional Information:
+                </label>
+
+                <textarea
+                    id="additional-info"
+                    name="additional-info"
+                    rows="4"
+                    placeholder="Tell us anything else about your hair..."
+                ></textarea>
+<br> 
+
+                <!-- Submit Button -->
+                <button type="submit">
+                    Submit Consultation
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+
+        <h3 style="color: darkgreen; font-size: 20px;">IKHWEZI Hair Care Products</h3>
+
+        <p>
+            Natural Hair Care for Every Hair Type
+        </p>
+
+        <p>
+            Peddie, Eastern Cape, South Africa
+        </p>
+
+        <p>
+            Phone: 078 123 4567
+        </p>
+
+        <p>
+            Email: ikhwezihaircare@gmail.com
+        </p>
+
+        
+
+    </footer>
+
+</body>
+
+</html>
