@@ -1,0 +1,2244 @@
+/* =========================================
+   IKHWEZI LUXURY NAVIGATION
+========================================= */
+
+nav {
+    background: rgba(214, 232, 202, 0.96);
+    padding: 18px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-bottom: 2px solid #c8a951;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: #294b32;
+    text-decoration: none;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 8px 5px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.nav-links a:hover {
+    color: #b08d32;
+}
+
+/* Gold underline */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #b08d32;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Keyboard accessibility */
+.nav-links a:focus {
+    outline: 2px solid #b08d32;
+    outline-offset: 4px;
+}
+/* =========================================
+   RESPONSIVE DESIGN
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 15px 25px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 15px;
+    }
+
+    .hero {
+        min-height: 80vh;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .values-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-section,
+    .mission,
+    .vision,
+    .why-choose,
+    .contact-form,
+    .consultation-form {
+        width: 90%;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    h2 {
+        font-size: 27px;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    header {
+        padding: 15px;
+    }
+
+    nav {
+        padding: 15px 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 15px;
+    }
+
+    .hero {
+        min-height: 75vh;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .values-container,
+    .product-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-section,
+    .mission,
+    .vision,
+    .why-choose,
+    .contact-information,
+    .location-map,
+    .contact-form,
+    .consultation-form {
+        width: 95%;
+        padding: 20px;
+    }
+
+    h1,
+    .about-intro h1,
+    .products-intro h1,
+    .contact-section > h1,
+    .consultation-section > h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+
+    p,
+    .about-content p,
+    .contact-section > p,
+    .consultation-section > p {
+        font-size: 15px;
+    }
+
+    .product-card img {
+        width: 100%;
+        max-width: 180px;
+        height: auto;
+    }
+
+    .location-map iframe {
+        width: 100%;
+        height: 280px;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .consultation-form input,
+    .consultation-form select,
+    .consultation-form textarea {
+        font-size: 16px;
+    }
+}
+/* =====================================================
+   IKHWEZI HAIR CARE PRODUCTS
+   Main External Stylesheet
+   ===================================================== */
+
+
+/* =====================================================
+   1. DEFAULT / GENERAL STYLES
+   ===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-green: #294b32;
+    --light-green: #d6e8ca;
+    --soft-green: #b7d7a8;
+    --gold: #c8a951;
+    --cream: #f8f3ec;
+    --brown: #3d3028;
+    --white: #ffffff;
+    --text: #333333;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+
+/* =====================================================
+   2. TYPOGRAPHY
+   ===================================================== */
+
+h1,
+h2,
+h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--dark-green);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   3. HEADER
+   ===================================================== */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+
+    padding: 20px 50px;
+
+    background-color: var(--light-green);
+    border-bottom: 2px solid var(--gold);
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =====================================================
+   4. LOGO / BRANDING
+   ===================================================== */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo h2 {
+    color: var(--dark-green);
+    font-size: 24px;
+}
+
+.logo img {
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* =====================================================
+   5. NAVIGATION MENU
+   ===================================================== */
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    position: relative;
+
+    color: var(--dark-green);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    font-weight: 600;
+
+    padding: 8px 4px;
+
+    transition: color 0.3s ease;
+}
+
+
+/* Gold underline effect */
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 2px;
+
+    background-color: var(--gold);
+
+    transition: width 0.3s ease;
+}
+
+
+/* Hover pseudo-class */
+
+nav a:hover {
+    color: #a37d22;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+
+/* Focus pseudo-class */
+
+nav a:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+}
+
+
+/* Active pseudo-class */
+
+nav a:active {
+    color: var(--gold);
+}
+
+
+/* =====================================================
+   6. HERO SECTION
+   ===================================================== */
+
+#hero {
+    min-height: 75vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px 30px;
+
+    background-image:
+        linear-gradient(
+            rgba(41, 75, 50, 0.35),
+            rgba(41, 75, 50, 0.35)
+        ),
+        url("../images/ChatGPT Image Sep 10, 2026, 10_40_46 AM.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#hero p {
+    max-width: 800px;
+
+    padding: 20px 35px;
+
+    background-color: rgba(248, 243, 236, 0.95);
+
+    color: var(--dark-green);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: bold;
+
+    text-align: center;
+
+    border-radius: 10px;
+    border: 1px solid var(--gold);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =====================================================
+   7. BENEFITS SECTION
+   ===================================================== */
+
+#benefits {
+    padding: 70px 30px;
+
+    text-align: center;
+
+    background-color: var(--cream);
+}
+
+#benefits h2 {
+    margin-bottom: 30px;
+
+    font-size: 34px;
+}
+
+#benefits ul {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    list-style: none;
+}
+
+#benefits li {
+    padding: 20px;
+
+    background-color: var(--white);
+
+    color: var(--dark-green);
+
+    font-size: 17px;
+    font-weight: 600;
+
+    border: 1px solid var(--light-green);
+    border-radius: 10px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+/* Benefits hover effect */
+
+#benefits li:hover {
+    transform: translateY(-5px);
+
+    background-color: var(--light-green);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =====================================================
+   8. FOOTER
+   ===================================================== */
+
+footer {
+    min-height: 100px;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    background-color: var(--dark-green);
+
+    border-top: 3px solid var(--gold);
+
+    color: var(--white);
+}
+
+
+/* =====================================================
+   9. TABLET RESPONSIVE DESIGN
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+
+        padding: 20px;
+
+        text-align: center;
+    }
+
+    .logo {
+        flex-direction: column;
+    }
+
+    .logo h2 {
+        font-size: 22px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 15px;
+    }
+
+    #hero {
+        min-height: 65vh;
+
+        padding: 40px 20px;
+
+        background-position: center;
+    }
+
+    #hero p {
+        font-size: 24px;
+        padding: 18px 25px;
+    }
+
+    #benefits {
+        padding: 50px 20px;
+    }
+
+    #benefits h2 {
+        font-size: 30px;
+    }
+
+    #benefits ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =====================================================
+   10. MOBILE RESPONSIVE DESIGN
+   ===================================================== */
+
+@media (max-width: 480px) {
+
+    header {
+        padding: 15px;
+    }
+
+    .logo img {
+        width: 150px;
+    }
+
+    .logo h2 {
+        font-size: 19px;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 15px;
+    }
+
+    #hero {
+        min-height: 70vh;
+
+        padding: 30px 15px;
+
+        background-position: center;
+    }
+
+    #hero p {
+        width: 100%;
+
+        font-size: 21px;
+
+        padding: 15px 18px;
+    }
+
+    #benefits {
+        padding: 45px 15px;
+    }
+
+    #benefits h2 {
+        font-size: 26px;
+    }
+
+    #benefits ul {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    #benefits li {
+        font-size: 16px;
+        padding: 18px;
+    }
+
+    footer {
+        padding: 25px 15px;
+    }
+}
+
+/* =========================================
+   HOME HERO - PRODUCT RANGE IMAGE
+========================================= */
+
+#hero {
+    position: relative;
+    min-height: 80vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px 40px;
+
+    background-color: var(--cream);
+}
+
+/* Product range positioned on the left corner */
+
+.range-image {
+    position: absolute;
+    left: 30px;
+    bottom: 20px;
+
+    width: 350px;
+    max-width: 35%;
+
+    height: auto;
+
+    object-fit: contain;
+
+    transition: transform 0.3s ease;
+}
+
+/* Small zoom when hovering */
+
+.range-image:hover {
+    transform: scale(1.05);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+    max-width: 600px;
+
+    margin-left: 300px;
+}
+/* =====================================================
+   ABOUT PAGE - FLASH CARDS
+===================================================== */
+
+
+/* ================= ABOUT INTRO ================= */
+
+.about-intro {
+    padding: 60px 30px 40px;
+
+    text-align: center;
+
+    background-color: var(--cream);
+}
+
+.about-intro h1 {
+    margin-bottom: 15px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 42px;
+
+    color: var(--dark-green);
+}
+
+.about-intro p {
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   ABOUT FLASH CARDS
+===================================================== */
+
+.about-cards {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 40px 30px 70px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* Individual About card */
+
+.about-card {
+    padding: 30px 25px;
+
+    background-color: var(--white);
+
+    border-top: 4px solid var(--gold);
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+    min-height: 300px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* About card headings */
+
+.about-card h2 {
+    margin-bottom: 18px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 27px;
+
+    color: var(--dark-green);
+}
+
+
+/* About card paragraphs */
+
+.about-card p {
+    margin-bottom: 15px;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* Card hover effect */
+
+.about-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.14);
+}
+
+
+/* =====================================================
+   WHY CHOOSE IKHWEZI
+===================================================== */
+
+.why-choose {
+    padding: 60px 30px 80px;
+
+    text-align: center;
+
+    background-color: var(--cream);
+}
+
+.why-choose > h2 {
+    margin-bottom: 35px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 32px;
+
+    color: var(--dark-green);
+}
+
+
+/* Values cards */
+
+.values-container {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+
+/* Individual value card */
+
+.value-card {
+    padding: 30px 20px;
+
+    background-color: var(--white);
+
+    border-top: 4px solid var(--gold);
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+    min-height: 220px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Value heading */
+
+.value-card h3 {
+    margin-bottom: 15px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 23px;
+
+    color: var(--dark-green);
+}
+
+
+/* Value paragraph */
+
+.value-card p {
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* Value card hover */
+
+.value-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.14);
+}
+
+
+/* =====================================================
+   TABLET RESPONSIVE DESIGN
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .about-intro {
+        padding: 45px 25px 30px;
+    }
+
+    .about-intro h1 {
+        font-size: 36px;
+    }
+
+
+    /* About cards become two columns */
+
+    .about-cards {
+        grid-template-columns: repeat(2, 1fr);
+
+        padding: 35px 25px 60px;
+    }
+
+
+    /* Values cards become two columns */
+
+    .values-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE RESPONSIVE DESIGN
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .about-intro {
+        padding: 40px 15px 25px;
+    }
+
+    .about-intro h1 {
+        font-size: 30px;
+    }
+
+    .about-intro p {
+        font-size: 15px;
+    }
+
+
+    /* One About card per row */
+
+    .about-cards {
+        grid-template-columns: 1fr;
+
+        padding: 30px 15px 50px;
+    }
+
+
+    .about-card {
+        min-height: auto;
+
+        padding: 25px 20px;
+    }
+
+
+    .about-card h2 {
+        font-size: 24px;
+    }
+
+
+    /* One value card per row */
+
+    .values-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    .why-choose {
+        padding: 45px 15px 60px;
+    }
+
+    .why-choose > h2 {
+        font-size: 28px;
+    }
+
+}
+
+/* =====================================================
+   ABOUT - STORY, MISSION AND VISION FLASH CARDS
+===================================================== */
+
+.about-cards {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 50px 30px 70px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* Individual flash card */
+
+.about-card {
+    padding: 30px 25px;
+
+    background-color: var(--white);
+
+    border-top: 4px solid var(--gold);
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+    min-height: 280px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Card heading */
+
+.about-card h2 {
+    margin-bottom: 18px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 27px;
+
+    color: var(--dark-green);
+}
+
+
+/* Card text */
+
+.about-card p {
+    margin-bottom: 15px;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* Flash card hover effect */
+
+.about-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.14);
+}
+/* ================= STORY, MISSION & VISION ================= */
+
+.about-cards-section {
+    padding: 25px 5px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Flash Card */
+.about-card {
+    background: #fffaf5;
+    width: 80%;
+    max-width: 1000px;
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+/* Card heading */
+.about-card h2 {
+    color: #5f8075;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+/* Card text */
+.about-card p {
+    color: #666;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* Hover effect */
+.about-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .about-card {
+        width: 90%;
+        padding: 25px;
+    }
+
+    .about-card h2 {
+        font-size: 26px;
+    }
+
+    .about-card p {
+        font-size: 15px;
+    }
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .about-cards {
+        grid-template-columns: repeat(2, 1fr);
+
+        padding: 40px 25px 60px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .about-cards {
+        grid-template-columns: 1fr;
+
+        padding: 30px 15px 50px;
+    }
+
+    .about-card {
+        min-height: auto;
+
+        padding: 25px 20px;
+    }
+
+    .about-card h2 {
+        font-size: 24px;
+    }
+
+}
+/* =====================================================
+   CONTACT PAGE
+===================================================== */
+
+.contact-section {
+    padding: 80px 30px;
+
+    background-color: var(--cream);
+
+    text-align: center;
+}
+
+.contact-section > h1 {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.contact-section > p {
+    max-width: 750px;
+    margin: 0 auto 50px;
+
+    font-size: 18px;
+}
+
+
+/* Contact two-column layout */
+
+.contact-container {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+
+    gap: 40px;
+
+    text-align: left;
+}
+
+
+/* =====================================================
+   CONTACT INFORMATION
+===================================================== */
+
+.contact-information {
+    padding: 35px;
+
+    background-color: var(--light-green);
+
+    border-radius: 12px;
+
+    border-top: 4px solid var(--gold);
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.contact-information h2 {
+    margin-bottom: 20px;
+
+    font-size: 32px;
+}
+
+.contact-information > p {
+    margin-bottom: 30px;
+}
+
+
+/* Individual contact information */
+
+.contact-item {
+    margin-bottom: 20px;
+
+    padding: 18px;
+
+    background-color: var(--white);
+
+    border-left: 3px solid var(--gold);
+
+    border-radius: 8px;
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.contact-item h3 {
+    margin-bottom: 5px;
+
+    font-size: 19px;
+}
+
+.contact-item p {
+    font-size: 15px;
+}
+
+
+/* Hover pseudo-class */
+
+.contact-item:hover {
+    transform: translateX(5px);
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =====================================================
+   CONTACT FORM
+===================================================== */
+
+.contact-form {
+    padding: 35px;
+
+    background-color: var(--white);
+
+    border-radius: 12px;
+
+    border-top: 4px solid var(--gold);
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form h2 {
+    margin-bottom: 25px;
+
+    font-size: 32px;
+}
+
+
+/* Form labels */
+
+.contact-form label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--dark-green);
+
+    font-weight: bold;
+}
+
+
+/* Form inputs */
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #cfd8c8;
+
+    border-radius: 7px;
+
+    background-color: #fafcf8;
+
+    color: var(--text);
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 15px;
+
+    transition: border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+
+/* Input focus pseudo-class */
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+
+    border-color: var(--gold);
+
+    box-shadow: 0 0 0 3px rgba(200, 169, 81, 0.15);
+}
+
+
+/* Submit button */
+
+.contact-form button {
+    width: 100%;
+
+    padding: 14px 20px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background-color: var(--dark-green);
+
+    color: var(--white);
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease,
+                transform 0.3s ease;
+}
+
+
+/* Button hover */
+
+.contact-form button:hover {
+    background-color: #3f704b;
+
+    transform: translateY(-2px);
+}
+
+
+/* Button active */
+
+.contact-form button:active {
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   CONTACT - TABLET
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .contact-section {
+        padding: 60px 25px;
+    }
+
+    .contact-section > h1 {
+        font-size: 38px;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .contact-information,
+    .contact-form {
+        padding: 30px;
+    }
+}
+
+
+/* =====================================================
+   CONTACT - MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .contact-section {
+        padding: 45px 15px;
+    }
+
+    .contact-section > h1 {
+        font-size: 30px;
+    }
+
+    .contact-section > p {
+        font-size: 15px;
+    }
+
+    .contact-information,
+    .contact-form {
+        padding: 22px;
+    }
+
+    .contact-information h2,
+    .contact-form h2 {
+        font-size: 26px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 16px;
+    }
+}
+/* =====================================================
+   PRODUCTS PAGE
+===================================================== */
+
+.products-section {
+    padding: 80px 30px;
+
+    background-color: var(--cream);
+}
+
+
+/* ================= PRODUCTS INTRO ================= */
+
+.products-intro {
+    text-align: center;
+
+    max-width: 800px;
+
+    margin: 0 auto 50px;
+}
+
+.products-intro h1 {
+    font-size: 45px;
+
+    margin-bottom: 20px;
+}
+
+.products-intro p {
+    font-size: 18px;
+}
+
+
+/* ================= PRODUCT GRID ================= */
+
+.products-container {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+}
+/* =====================================================
+   PRODUCTS PAGE
+===================================================== */
+
+/* Products introduction */
+.products-intro {
+    padding: 50px 30px 30px;
+    text-align: center;
+    background-color: var(--cream);
+}
+
+.products-intro h1 {
+    margin-bottom: 15px;
+    font-size: 35px;
+    color: var(--dark-green);
+}
+
+.products-intro p {
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 17px;
+}
+
+
+/* Products section */
+.products {
+    padding: 20px 30px 70px;
+    background-color: var(--cream);
+}
+
+
+/* Product cards container */
+.product-container {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+
+/* Individual product card
+   Designed to match the Our Values cards */
+.product-card {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--white);
+
+    padding: 25px 20px;
+
+    border-top: 4px solid var(--gold);
+    border-radius: 12px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+    min-height: 420px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Product images */
+.product-card img {
+    width: 180px;
+    height: 180px;
+
+    object-fit: contain;
+
+    margin: 0 auto 20px;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* Product names */
+.product-card h3 {
+    margin-bottom: 15px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+
+    color: var(--dark-green);
+}
+
+
+/* Product descriptions */
+.product-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+}
+
+
+/* Product card hover effect */
+.product-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.14);
+}
+
+
+/* Product image hover effect */
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+
+/* =====================================================
+   PRODUCT BENEFITS
+===================================================== */
+
+.product-benefits {
+    padding: 60px 30px;
+
+    background-color: var(--light-green);
+
+    text-align: center;
+}
+
+.product-benefits h2 {
+    margin-bottom: 25px;
+
+    font-size: 30px;
+    color: var(--dark-green);
+}
+
+.product-benefits ul {
+    max-width: 600px;
+    margin: 0 auto;
+
+    text-align: left;
+
+    line-height: 2;
+}
+
+
+/* =====================================================
+   CALL TO ACTION
+===================================================== */
+
+.call-to-action {
+    padding: 60px 30px;
+
+    text-align: center;
+
+    background-color: var(--cream);
+}
+
+.call-to-action h2 {
+    margin-bottom: 15px;
+
+    font-size: 30px;
+}
+
+.call-to-action p {
+    margin-bottom: 25px;
+}
+
+.call-to-action a {
+    display: inline-block;
+
+    padding: 12px 25px;
+
+    background-color: var(--dark-green);
+    color: var(--white);
+
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* Hover pseudo-class */
+.call-to-action a:hover {
+    background-color: #3f704b;
+    transform: translateY(-2px);
+}
+
+
+/* Focus pseudo-class */
+.call-to-action a:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+}
+
+
+/* Active pseudo-class */
+.call-to-action a:active {
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   TABLET RESPONSIVE DESIGN
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .products-intro {
+        padding: 40px 25px 25px;
+    }
+
+    .products-intro h1 {
+        font-size: 32px;
+    }
+
+    .product-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .product-card {
+        min-height: 400px;
+    }
+
+    .product-card img {
+        width: 160px;
+        height: 160px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE RESPONSIVE DESIGN
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .products-intro {
+        padding: 35px 15px 20px;
+    }
+
+    .products-intro h1 {
+        font-size: 28px;
+    }
+
+    .products-intro p {
+        font-size: 15px;
+    }
+
+    .products {
+        padding: 20px 15px 50px;
+    }
+
+    .product-container {
+        grid-template-columns: 1fr;
+    }
+
+    .product-card {
+        min-height: auto;
+        padding: 25px 20px;
+    }
+
+    .product-card img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .product-card h3 {
+        font-size: 21px;
+    }
+
+}
+/* =====================================================
+   PRODUCT IMAGE SPIN ANIMATION
+===================================================== */
+
+.product-card img {
+    animation: productSpin 1.5s ease-out;
+}
+
+/* Creates the spinning effect */
+@keyframes productSpin {
+    from {
+        transform: rotate(0deg) scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotate(360deg) scale(1);
+        opacity: 1;
+    }
+}
+/* =====================================================
+   HAIR CONSULTATION PAGE
+===================================================== */
+
+
+/* ================= CONSULTATION INTRO ================= */
+
+.consultation-intro {
+    padding: 55px 30px 40px;
+
+    text-align: center;
+
+    background-color: var(--cream);
+}
+
+.consultation-intro h1 {
+    margin-bottom: 15px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 42px;
+
+    color: var(--dark-green);
+}
+
+.consultation-intro p {
+    max-width: 750px;
+
+    margin: 0 auto;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* ================= MAIN CONSULTATION SECTION ================= */
+
+.consultation-section {
+    padding: 35px 30px 70px;
+
+    background-color: var(--cream);
+}
+
+
+/* Two-column page layout */
+
+.consultation-container {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1.4fr;
+
+    gap: 25px;
+
+    align-items: stretch;
+}
+
+
+/* =====================================================
+   INFORMATION CARD
+===================================================== */
+
+.consultation-info {
+    padding: 30px;
+
+    background-color: var(--light-green);
+
+    border-top: 4px solid var(--gold);
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.consultation-info h2 {
+    margin-bottom: 15px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 30px;
+
+    color: var(--dark-green);
+}
+
+.consultation-info > p {
+    margin-bottom: 25px;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   HELP INFORMATION
+===================================================== */
+
+.consultation-tip {
+    padding: 22px;
+
+    background-color: var(--white);
+
+    border-radius: 10px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.consultation-tip h3 {
+    margin-bottom: 15px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 24px;
+
+    color: var(--dark-green);
+}
+
+.consultation-tip ul {
+    padding-left: 20px;
+
+    line-height: 2;
+}
+
+.consultation-tip li::marker {
+    color: var(--gold);
+}
+
+
+/* =====================================================
+   CONSULTATION FORM
+===================================================== */
+
+.consultation-form {
+    padding: 30px;
+
+    background-color: var(--white);
+
+    border-top: 4px solid var(--gold);
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Form heading */
+
+.consultation-form h2 {
+    margin-bottom: 22px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 30px;
+
+    color: var(--dark-green);
+}
+
+
+/* =====================================================
+   FORM GRID
+===================================================== */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 0 20px;
+}
+
+
+/* Individual form group */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+
+/* Full-width fields */
+
+.full-width {
+    width: 100%;
+}
+
+
+/* =====================================================
+   FORM LABELS
+===================================================== */
+
+.consultation-form label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--dark-green);
+
+    font-weight: bold;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   FORM INPUTS
+===================================================== */
+
+.consultation-form input,
+.consultation-form select,
+.consultation-form textarea {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #cfd8c8;
+
+    border-radius: 7px;
+
+    background-color: #fafcf8;
+
+    color: var(--text);
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 15px;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* =====================================================
+   INPUT FOCUS EFFECT
+===================================================== */
+
+.consultation-form input:focus,
+.consultation-form select:focus,
+.consultation-form textarea:focus {
+    outline: none;
+
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 0 3px rgba(200, 169, 81, 0.15);
+}
+
+
+/* =====================================================
+   TEXTAREA
+===================================================== */
+
+.consultation-form textarea {
+    resize: vertical;
+
+    min-height: 100px;
+}
+
+
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
+
+.consultation-form button {
+    width: 100%;
+
+    padding: 14px 20px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background-color: var(--dark-green);
+
+    color: var(--white);
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* Button hover */
+
+.consultation-form button:hover {
+    background-color: #3f704b;
+
+    transform: translateY(-2px);
+}
+
+
+/* Button focus */
+
+.consultation-form button:focus {
+    outline: 2px solid var(--gold);
+
+    outline-offset: 3px;
+}
+
+
+/* Button active */
+
+.consultation-form button:active {
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   TABLET RESPONSIVE DESIGN
+===================================================== */
+
+@media (max-width: 768px) {
+
+    /* Smaller introduction */
+    .consultation-intro {
+        padding: 45px 25px 30px;
+    }
+
+    .consultation-intro h1 {
+        font-size: 36px;
+    }
+
+
+    /* Stack the two main cards */
+    .consultation-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Keep form fields in two columns */
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .consultation-info,
+    .consultation-form {
+        padding: 25px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE RESPONSIVE DESIGN
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .consultation-intro {
+        padding: 40px 15px 25px;
+    }
+
+    .consultation-intro h1 {
+        font-size: 30px;
+    }
+
+    .consultation-intro p {
+        font-size: 15px;
+    }
+
+
+    .consultation-section {
+        padding: 30px 15px 50px;
+    }
+
+
+    /* Single column form on phones */
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .consultation-info,
+    .consultation-form {
+        padding: 20px;
+    }
+
+
+    .consultation-info h2,
+    .consultation-form h2 {
+        font-size: 25px;
+    }
+
+
+    .consultation-tip h3 {
+        font-size: 21px;
+    }
+
+
+    .consultation-form input,
+    .consultation-form select,
+    .consultation-form textarea {
+        font-size: 16px;
+    }
+
+}
+/* ================= ABOUT PAGE CENTER ALIGNMENT ================= */
+
+.about-intro {
+    text-align: center;
+}
+
+.about-intro h1,
+.about-intro p {
+    text-align: center;
+}
+
+/* Story, Mission & Vision */
+.about-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 40px 5%;
+    flex-wrap: wrap;
+}
+
+.about-card {
+    text-align: center;
+}
+
+.about-card h2 {
+    text-align: center;
+}
+
+.about-card p {
+    text-align: center;
+}
+
+
+
+/* Why Choose Us */
+.why-choose {
+    text-align: center;
+}
+
+.why-choose h2 {
+    text-align: center;
+}
+
+.why-choose ul {
+    display: inline-block;
+    text-align: left;
+}
+
+/* Call to Action */
+.call-to-action {
+    text-align: center;
+}
+
+.call-to-action h2,
+.call-to-action p {
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+}
