@@ -128,11 +128,175 @@ The form includes:
 
 ---
 
-# 7. Sitemap
-
-The sitemap shows the structure and navigation of the IKHWEZI Hair Care Products website.
 
  
 
 
- Part 2
+ Part 2 of the POE
+ # IKHWEZI Hair Care Products - CSS Documentation
+
+## Overview
+
+This CSS stylesheet provides the visual design and responsive layout for the IKHWEZI Hair Care Products website.
+
+The stylesheet is stored externally in:
+
+`Assets/css/style.css`
+
+Using an external stylesheet allows the website to maintain a consistent design across all pages and makes the CSS easier to maintain and update.
+
+## Website Pages Styled
+
+The stylesheet provides styling for the following pages:
+
+- Home page
+- About page
+- Products page
+- Contact page
+- Hair Consultation page
+
+## Design Features
+
+The CSS includes the following design features:
+
+### General Styling
+- CSS reset using the universal selector
+- Box-sizing for consistent element sizing
+- Website colour variables
+- Typography and font styling
+- Responsive images
+- Consistent heading styles
+
+### Colour Scheme
+
+The website uses a natural hair-care inspired colour palette:
+
+- Dark green - main brand colour
+- Light green - section backgrounds
+- Soft green - supporting colour
+- Gold - borders and decorative accents
+- Cream - main page background
+- White - cards and content areas
+
+### Navigation
+
+The navigation is styled using Flexbox and includes:
+
+- Horizontal navigation on larger screens
+- Hover effects
+- Focus states
+- Responsive navigation for smaller screens
+
+### Cards
+
+Cards are used throughout the website for:
+
+- About page information
+- Values
+- Products
+- Consultation information
+
+The cards include:
+
+- Rounded corners
+- Shadows
+- Gold borders
+- Hover animations
+- Consistent spacing
+
+### Forms
+
+The Contact and Hair Consultation forms include styling for:
+
+- Labels
+- Text input fields
+- Email fields
+- Telephone fields
+- Select menus
+- Textareas
+- Submit buttons
+- Focus effects
+- Hover effects
+
+## Responsive Design
+
+Media queries are used to make the website responsive on different screen sizes.
+
+### Desktop
+
+The website uses multi-column layouts and horizontal navigation on larger screens.
+
+### Tablet
+
+At screens below 768px:
+
+- Navigation becomes more flexible
+- Cards use fewer columns
+- Content spacing is reduced
+- Sections adjust to fit smaller screens
+
+### Mobile
+
+At screens below 480px:
+
+- Navigation becomes vertical
+- Cards use a single-column layout
+- Images are resized
+- Font sizes are reduced
+- Form fields become easier to use on small screens
+
+## Interactive Features
+
+Pseudo-classes are used to improve user interaction.
+
+Examples include:
+
+- `:hover` for navigation links, cards and buttons
+- `:focus` for form fields and links
+- `:active` for buttons
+
+Transitions are also used to create smooth visual effects.
+
+## CSS Organisation
+
+The stylesheet is organised into sections using descriptive comments.
+
+The main sections include:
+
+1. General Styling
+2. Header
+3. Logo
+4. Navigation
+5. Home Page
+6. About Page
+7. Products Page
+8. Contact Page
+9. Hair Consultation Page
+10. Footer
+11. Tablet Responsive Design
+12. Mobile Responsive Design
+
+## Accessibility
+
+The stylesheet supports usability and accessibility by providing:
+
+- Clear colour contrast
+- Visible focus states
+- Readable typography
+- Responsive layouts
+- Proper spacing between interactive elements
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- Flexbox
+- CSS Grid
+- CSS Variables
+- Media Queries
+- CSS Transitions
+- CSS Pseudo-classes
+
+## Purpose
+
+The purpose of this stylesheet is to create a professional, consistent and responsive visual design for the IKHWEZI Hair Care Products website while ensuring that the website can be viewed effectively on desktop, tablet and mobile devices.
