@@ -1,7 +1,23 @@
 /* =========================================
    IKHWEZI LUXURY NAVIGATION
 ========================================= */
-
+nav a:active {
+    color: var(--gold);
+}
+nav a:hover
+nav a:focus
+nav a:active {
+    color: #b08d32;
+}
+nav a:hover {
+    color: #b08d32;
+}
+nav a:focus {
+    color: #b08d32;
+}
+nav a:active {
+    color: #b08d32;
+}
 nav {
     background: rgba(214, 232, 202, 0.96);
     padding: 18px 40px;
