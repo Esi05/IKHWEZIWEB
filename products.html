@@ -29,6 +29,8 @@
                 <li>
                     <a href="./consultation.html">Hair Consultation</a>
                 </li>
+                <li>
+                    <a href="./finalbrandpage.html">Our Brand</a>
             </ul>
         </nav>
 
@@ -36,6 +38,7 @@
 
 
     <!-- ================= PRODUCTS INTRODUCTION ================= -->
+
     <section class="products-intro">
 
         <h1 style="color: darkgreen;">Our Products</h1>
@@ -46,111 +49,72 @@
             to nourish, strengthen and protect your hair.
         </p>
 
+    <div style="margin-top: 20px;">
+        <input type="text" id="searchInput" placeholder="Search IKHWEZI products..." onkeyup="filterProducts()" style="padding: 10px; width: 100%; max-width: 400px; border: 1px solid #ccc; border-radius: 4px;">
+    </div>
     </section>
 
 
     <!-- ================= PRODUCTS ================= -->
-    <section class="products">
-
-        
+     <section class="products">
+ 
         <div class="product-container">
-
-
+ 
             <!-- Hair Oil -->
             <div class="product-card">
- <h3 style="color: darkgreen;">IKHWEZI Hair Oil</h3>
-                <img src="/Assets/images/ChatGPT Image Aug 5, 2026, 06_30_47 PM.png" width="300"
-                     alt="IKHWEZI Hair Oil">
-
-            
-
+                <h3 style="color: darkgreen;">IKHWEZI Hair Oil</h3>
+                <img src="./Assets/images/ikhwezi-hair-oil.png" width="300"
+                     alt="IKHWEZI natural hair oil in a dropper bottle">
                 <p>
                     Our natural hair oil helps nourish the scalp,
                     reduce breakage, support hair growth and
                     strengthen the hairline.
                 </p>
-               
-                
-
             </div>
-
-
+ 
             <!-- Hair Food -->
             <div class="product-card">
-<h3 style="color: darkgreen;">IKHWEZI Hair Food</h3>
-                <img src="/Assets/images/ChatGPT Image Aug 5, 2026, 06_32_59 PM.png"width="300"
-                     alt="IKHWEZI Hair Food">
-
-                
-
+                <h3 style="color: darkgreen;">IKHWEZI Hair Food</h3>
+                <img src="./Assets/images/ikhwezi-hair-food.png" width="300"
+                     alt="IKHWEZI hair food jar for dry and damaged hair">
                 <p>
                     Provides moisture and nourishment to dry,
                     weak and damaged hair while helping to
                     improve hair strength.
                 </p>
-
-               
-                
             </div>
-
-
+ 
             <!-- Hair Spray -->
             <div class="product-card">
-<h3 style="color: darkgreen;">IKHWEZI Hair Spray</h3>
-
-                <img src="/Assets/images/ChatGPT Image Aug 5, 2026, 06_34_30 PM.png" width="300"
-                     alt="IKHWEZI Hair Spray">
-
-                
-
+                <h3 style="color: darkgreen;">IKHWEZI Hair Spray</h3>
+                <img src="./Assets/images/ikhwezi-hair-spray.png" width="300"
+                     alt="IKHWEZI hair spray bottles for refreshing hair and scalp">
                 <p>
                     Helps refresh and moisturise the hair and
                     scalp while supporting healthy-looking hair.
                 </p>
-
-               
-                
-
             </div>
-
-
+ 
             <!-- Shampoo -->
             <div class="product-card">
-<h3 style="color: darkgreen;">IKHWEZI Shampoo</h3>
-                <img src="/Assets/images/ChatGPT Image Aug 5, 2026, 06_36_42 PM.png" width="300"
-                     alt="IKHWEZI Shampoo">
-
-                
-
+                <h3 style="color: darkgreen;">IKHWEZI Shampoo</h3>
+                <img src="./Assets/images/ikhwezi-shampoo.png" width="300"
+                     alt="IKHWEZI shampoo bottle for gentle cleansing">
                 <p>
                     Gently cleanses the hair and scalp while
                     helping remove dirt and excess oil.
                 </p>
-
-                
-
-                
             </div>
-
-
+ 
             <!-- Conditioner -->
             <div class="product-card">
- <h3 style="color: darkgreen;">IKHWEZI Conditioner</h3>
-
-                <img src="/Assets/images/ChatGPT Image Aug 5, 2026, 06_38_30 PM - Copy.png" width="300"
-                     alt="IKHWEZI Conditioner">
-
-                
-
+                <h3 style="color: darkgreen;">IKHWEZI Conditioner</h3>
+                <img src="./Assets/images/ikhwezi-conditioner.png" width="300"
+                     alt="IKHWEZI conditioner bottle for soft manageable hair">
                 <p>
-                  moisturise, soften and nourish the
-                    natural air, making it easier to manage.
+                    Moisturise, soften and nourish the
+                    natural hair, making it easier to manage.
                 </p>
-
-               
-
-                
-
             </div>
 
         </div>
@@ -188,7 +152,25 @@
         <a href="contact.html">Contact Us</a>
 
     </section>
+<input type="text" id="searchInput" placeholder="Search items..." onkeyup="filterItems()">
 
+
+
+<!-- ================= LIGHTBOX MODAL  ================= -->
+    <div id="lightboxModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); text-align: center;">
+        <span onclick="closeLightbox()" style="position: absolute; top: 20px; right: 40px; color: #fff; font-size: 45px; font-weight: bold; cursor: pointer;">&times;</span>
+        <img id="lightboxImg" style="margin-top: 5vh; max-width: 90%; max-height: 85vh; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
+    </div>
+
+    <script>
+document.getElementById("searchInput").addEventListener("input", function () {
+    const words = this.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
+    document.querySelectorAll(".product-card").forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = words.every(w => text.includes(w)) ? "" : "none";
+    });
+});
+</script>
 
     <!-- ================= FOOTER ================= -->
     <footer>
@@ -208,7 +190,7 @@
         </p>
 
         <p>
-            Email: ikhwezihaircare@gmail.com
+            Email: esimthandayomda@gmail.com
         </p>
 
 
