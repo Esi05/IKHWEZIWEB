@@ -3280,3 +3280,77 @@ body {
 .final-content p {
     font-weight: 600;
 }
+
+
+/* Gallery lightbox */
+#imageLightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.92);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 60px 15px 25px;
+    box-sizing: border-box;
+}
+
+#imageLightbox .lightbox-img {
+    max-width: 90%;
+    max-height: 72vh;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+#imageLightbox button {
+    position: absolute;
+    border: none;
+    background: #547b36;
+    color: white;
+    padding: 12px 16px;
+    font-size: 22px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+#imageLightbox .lightbox-close {
+    top: 15px;
+    right: 20px;
+}
+
+#imageLightbox .lightbox-prev {
+    left: 15px;
+}
+
+#imageLightbox .lightbox-next {
+    right: 15px;
+}
+
+#imageLightbox .lightbox-caption {
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.input-error {
+    border: 2px solid #b00020;
+}
+
+.form-feedback {
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    #imageLightbox .lightbox-img {
+        max-width: 95%;
+        max-height: 65vh;
+    }
+
+    #imageLightbox button {
+        padding: 10px;
+        font-size: 18px;
+    }
+}
+
