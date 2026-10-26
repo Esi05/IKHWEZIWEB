@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +15,6 @@
 
     <!-- Header -->
     <header>
-
         <div class="logo">
             <h2 style="color: rgba(97, 150, 17, 0.747); font-weight: bold;">
                 IKHWEZI Hair Care Products
@@ -24,35 +24,15 @@
         <!-- Navigation -->
         <nav>
             <ul class="nav-links">
-
-                <li>
-                    <a href="../index.html">Home</a>
-                </li>
-
-                <li>
-                    <a href="./about.html">About</a>
-                </li>
-
-                <li>
-                    <a href="./products.html">Products</a>
-                </li>
-
-                <li>
-                    <a href="./contact.html">Contact</a>
-                </li>
-
-                <li>
-                    <a href="./consultation.html">Hair Consultation</a>
-                     <li>
-                    <a href="./finalbrandpage.html">Our Brand</a>
-                </li>
-                </li>
-
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./products.html">Products</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./consultation.html">Hair Consultation</a></li>
+                <li><a href="./finalbrandpage.html">Our Brand</a></li>
             </ul>
         </nav>
-
     </header>
-
 
     <!-- Contact Us Section -->
     <section class="contact-section">
@@ -66,7 +46,6 @@
         </p>
 
         <br>
-
 
         <!-- Contact Information -->
         <div class="contact-information">
@@ -92,14 +71,12 @@
 
             <p>
                 <strong>Email:</strong>
-                ikhwezihaircare@gmail.com
+                esimthandayomda@gmail.com
             </p>
 
         </div>
 
-
         <br><br>
-
 
         <!-- Location Map -->
         <div class="location-map">
@@ -112,44 +89,51 @@
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53408.459626753!2d27.053586573168978!3d-33.21334311163782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e642124537ca3cf%3A0x884ca69cbe332054!2sPeddie%2C%205640!5e0!3m2!1sen!2sza!4v1788985304210!5m2!1sen!2sza"
                 width="600"
                 height="450"
-                style="border:0;"
-                allowfullscreen=""
+                style="border: 0; max-width: 100%;"
+                allowfullscreen
                 loading="lazy"
+                title="Map showing Peddie, Eastern Cape"
                 referrerpolicy="strict-origin-when-cross-origin">
             </iframe>
 
         </div>
 
-
         <br><br>
 
-
-        <!-- Contact Form -->
+        <!-- Contact Form: Web3Forms -->
         <div class="contact-form">
 
             <h2 style="color: darkgreen;">
                 Send Us a Message
             </h2>
 
-            <form action="#" method="post">
+            <form id="contactForm">
 
-                <label for="name">
-                    Full Name:
-                </label>
+                <!-- Web3Forms Access Key -->
+                <input
+                    type="hidden"
+                    name="access_key"
+                    value="7d6cad5b-67ce-479a-9404-a37c23bef5b9">
+
+                <!-- Email Subject -->
+                <input
+                    type="hidden"
+                    name="subject"
+                    value="New Enquiry - IKHWEZI Hair Care Products">
+
+                <label for="name">Full Name:</label>
 
                 <input
                     type="text"
                     id="name"
                     name="name"
                     placeholder="Enter your full name"
+                    minlength="2"
                     required>
 
                 <br><br>
 
-
-                <label for="email">
-                    Email Address:
-                </label>
+                <label for="email">Email Address:</label>
 
                 <input
                     type="email"
@@ -160,23 +144,17 @@
 
                 <br><br>
 
-
-                <label for="phone">
-                    Phone Number:
-                </label>
+                <label for="phone">Phone Number:</label>
 
                 <input
                     type="tel"
                     id="phone"
                     name="phone"
-                    placeholder="Enter your phone number">
+                    placeholder="e.g. 078 166 7393">
 
                 <br><br>
 
-
-                <label for="message">
-                    Message:
-                </label>
+                <label for="message">Your Message:</label>
 
                 <br>
 
@@ -184,16 +162,23 @@
                     id="message"
                     name="message"
                     rows="5"
+                    minlength="10"
                     placeholder="Write your message here..."
-                    required>
-                </textarea>
+                    required></textarea>
 
                 <br><br>
 
-
-                <button type="submit">
+                <button type="submit" id="submitButton">
                     Send Message
                 </button>
+
+                <!-- Success and error messages -->
+                <p
+                    id="formStatus"
+                    class="form-status"
+                    role="status"
+                    aria-live="polite">
+                </p>
 
             </form>
 
@@ -201,20 +186,18 @@
 
     </section>
 
-
     <br><br>
-
 
     <!-- Footer -->
     <footer>
-
         <p>
             &copy; 2026 IKHWEZI Hair Care Products.
             All rights reserved.
         </p>
-
     </footer>
 
-</body>
+    <!-- JavaScript -->
+    <script src="Assets/js/script.js" defer></script>
 
+</body>
 </html>
