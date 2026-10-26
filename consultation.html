@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,12 +28,10 @@
                 <li><a href="./about.html">About</a></li>
                 <li><a href="./products.html">Products</a></li>
                 <li><a href="./contact.html">Contact</a></li>
-                <li>
-                    <a href="./consultation.html">Hair Consultation</a>
                      <li>
-                    <a href="./finalbrandpage.html">Our Brand</a>
                 </li>
-                </li>
+                <li><a href="./consultation.html">Hair Consultation</a></li>
+                <li><a href="./finalbrandpage.html">Our Brand</a></li>
             </ul>
         </nav>
 
@@ -89,10 +88,22 @@
 
 
             <!-- ================= CONSULTATION FORM ================= -->
-            <form class="consultation-form">
+            <form class="consultation-form"
+                  id="consultationForm"
+                  action="https://api.web3forms.com/submit"
+                  method="POST">
 
                 <h2>Client Details</h2>
 
+                <!-- Web3Forms settings -->
+                <input type="hidden" name="access_key"
+                       value="7d6cad5b-67ce-479a-9404-a37c23bef5b9">
+
+                <input type="hidden" name="subject"
+                       value="New Hair Consultation - IKHWEZI Hair Care Products">
+
+                <input type="hidden" name="from_name"
+                       value="IKHWEZI Hair Care Products Website">
 
                 <!-- Two-column form fields -->
                 <div class="form-grid">
@@ -150,31 +161,17 @@
 
                         <label for="hair-type">Hair Type</label>
 
-                        <select id="hair-type" name="hair-type" required>
+                        <select id="hair-type" name="hair_type" required>
 
                             <option value="">
                                 Select your hair type
                             </option>
 
-                            <option value="natural">
-                                Natural Hair
-                            </option>
-
-                            <option value="relaxed">
-                                Relaxed Hair
-                            </option>
-
-                            <option value="braids">
-                                Braids
-                            </option>
-
-                            <option value="locs">
-                                Locs
-                            </option>
-
-                            <option value="other">
-                                Other
-                            </option>
+                            <option value="Natural Hair">Natural Hair</option>
+                            <option value="Relaxed Hair">Relaxed Hair</option>
+                            <option value="Braids">Braids</option>
+                            <option value="Locs">Locs</option>
+                            <option value="Other">Other</option>
 
                         </select>
 
@@ -190,7 +187,7 @@
 
                         <select
                             id="hair-condition"
-                            name="hair-condition"
+                            name="hair_condition"
                             required
                         >
 
@@ -198,25 +195,11 @@
                                 Select an option
                             </option>
 
-                            <option value="healthy">
-                                Healthy
-                            </option>
-
-                            <option value="dry">
-                                Dry
-                            </option>
-
-                            <option value="damaged">
-                                Damaged
-                            </option>
-
-                            <option value="brittle">
-                                Brittle
-                            </option>
-
-                            <option value="oily">
-                                Oily
-                            </option>
+                            <option value="Healthy">Healthy</option>
+                            <option value="Dry">Dry</option>
+                            <option value="Damaged">Damaged</option>
+                            <option value="Brittle">Brittle</option>
+                            <option value="Oily">Oily</option>
 
                         </select>
 
@@ -240,29 +223,12 @@
                                 Select your main concern
                             </option>
 
-                            <option value="growth">
-                                Hair Growth
-                            </option>
-
-                            <option value="breakage">
-                                Hair Breakage
-                            </option>
-
-                            <option value="dandruff">
-                                Dandruff
-                            </option>
-
-                            <option value="dry-scalp">
-                                Dry Scalp
-                            </option>
-
-                            <option value="damage">
-                                Hair Damage
-                            </option>
-
-                            <option value="other">
-                                Other
-                            </option>
+                            <option value="Hair Growth">Hair Growth</option>
+                            <option value="Hair Breakage">Hair Breakage</option>
+                            <option value="Dandruff">Dandruff</option>
+                            <option value="Dry Scalp">Dry Scalp</option>
+                            <option value="Hair Damage">Hair Damage</option>
+                            <option value="Other">Other</option>
 
                         </select>
 
@@ -306,6 +272,11 @@
                 </div>
 
 
+                <!-- Submission status -->
+                <p class="form-status" role="status"
+                   aria-live="polite"></p>
+
+
                 <!-- Submit Button -->
                 <button type="submit">
                     Submit Consultation
@@ -336,10 +307,12 @@
         </p>
 
         <p>
-            Email: ikhwezihaircare@gmail.com
+            Email: esimthandayomda@gmail.com
         </p>
 
     </footer>
+
+    <script src="Assets/js/script.js" defer></script>
 
 </body>
 </html>
