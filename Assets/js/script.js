@@ -1,103 +1,59 @@
-
 /* =========================================================
    IKHWEZI HAIR CARE PRODUCTS
-   JavaScript Features:
-   1. Form validation
-   2. Contact form using Web3Forms
-   3. Hair consultation form using EmailJS
+   1. Form validation (red errors)
+   2. Contact form - Web3Forms
+   3. Hair consultation form - Web3Forms
    4. Product search
    5. Product image lightbox
    ========================================================= */
 
 
 /* =========================================================
-   EMAILJS SETTINGS
-   Used ONLY for the Hair Consultation form.
-   ========================================================= */
-
-const EMAILJS_PUBLIC_KEY = "2fEFFJthal5tG0MoG";
-const EMAILJS_SERVICE_ID = "service_m3thdjc";
-const CONSULTATION_TEMPLATE_ID = "template_0ved7e4";
-
-if (typeof emailjs !== "undefined") {
-    emailjs.init({
-        publicKey: EMAILJS_PUBLIC_KEY
-    });
-}
-
-
-/* =========================================================
-   VALIDATION RULES
+   VALIDATION RULES (return "" if valid, or an error message)
    ========================================================= */
 
 const rules = {
 
     name(value) {
-        if (!value) {
-            return "Please enter your full name.";
-        }
-
+        if (!value) return "Please enter your full name.";
         if (!/^[A-Za-z\u00C0-\u024F' -]{2,}$/.test(value)) {
             return "Enter a name containing at least 2 letters.";
         }
-
         return "";
     },
 
     email(value) {
-        if (!value) {
-            return "Please enter your email address.";
-        }
-
+        if (!value) return "Please enter your email address.";
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
             return "Please enter a valid email address.";
         }
+        return "";
+    },
 
+    phoneOptional(value) {
+        if (!value) return "";
+        const digits = value.replace(/[\s()-]/g, "");
+        if (!/^(\+27|0)[0-9]{9}$/.test(digits)) {
+            return "Enter a valid South African number, e.g. 078 166 7393.";
+        }
         return "";
     },
 
     phoneRequired(value) {
-        if (!value) {
-            return "Please enter your phone number.";
-        }
-
+        if (!value) return "Please enter your phone number.";
         return rules.phoneOptional(value);
     },
 
-    phoneOptional(value) {
-        if (!value) {
-            return "";
-        }
-
-        const digits = value.replace(/[\s()-]/g, "");
-
-        if (!/^(\+27|0)[0-9]{9}$/.test(digits)) {
-            return "Enter a valid South African number, e.g. 078 166 7393.";
-        }
-
-        return "";
-    },
-
     select(label) {
-        return value => {
-            if (!value) {
-                return `Please select ${label}.`;
-            }
-
-            return "";
-        };
+        return value => (value ? "" : `Please select ${label}.`);
     },
 
     text(label, minimumLength) {
         return value => {
-            if (!value) {
-                return `Please enter ${label}.`;
-            }
-
+            if (!value) return `Please enter ${label}.`;
             if (value.length < minimumLength) {
                 return `Please write at least ${minimumLength} characters.`;
             }
-
             return "";
         };
     }
@@ -105,43 +61,46 @@ const rules = {
 
 
 /* =========================================================
-   ERROR MESSAGE HELPERS
+   ERROR HELPERS (red text + red box)
    ========================================================= */
 
 function clearError(field) {
     field.classList.remove("input-error");
     field.removeAttribute("aria-invalid");
+    field.style.border = "";
+    field.style.backgroundColor = "";
 
     const next = field.nextElementSibling;
-
     if (next && next.classList.contains("error-message")) {
         next.remove();
     }
 }
 
-
 function showError(field, message) {
     clearError(field);
 
+    // Red box
     field.classList.add("input-error");
     field.setAttribute("aria-invalid", "true");
+    field.style.border = "2px solid red";
+    field.style.backgroundColor = "#fff5f5";
 
+    // Red text
     const error = document.createElement("span");
-
     error.className = "error-message";
     error.setAttribute("role", "alert");
     error.textContent = message;
+    error.style.color = "red";
+    error.style.display = "block";
+    error.style.fontSize = "0.85rem";
+    error.style.marginTop = "4px";
 
     field.insertAdjacentElement("afterend", error);
 }
 
-
 function validateField(form, id, rule) {
     const field = form.querySelector("#" + id);
-
-    if (!field) {
-        return true;
-    }
+    if (!field) return true;
 
     const errorMessage = rule(field.value.trim());
 
@@ -156,7 +115,7 @@ function validateField(form, id, rule) {
 
 
 /* =========================================================
-   STATUS MESSAGE HELPER
+   STATUS MESSAGE (red = error, green = success)
    ========================================================= */
 
 function showStatus(form, message, type) {
@@ -164,15 +123,22 @@ function showStatus(form, message, type) {
 
     if (!status) {
         status = document.createElement("p");
-        status.className = "form-status";
         status.setAttribute("role", "status");
         status.setAttribute("aria-live", "polite");
-
         form.appendChild(status);
     }
 
     status.className = "form-status " + type;
     status.textContent = message;
+    status.style.fontWeight = "bold";
+
+    if (type === "error") {
+        status.style.color = "red";
+    } else if (type === "success") {
+        status.style.color = "darkgreen";
+    } else {
+        status.style.color = "#555";
+    }
 }
 
 
@@ -187,10 +153,7 @@ function setupValidation(form, fieldRules) {
     Object.entries(fieldRules).forEach(([id, rule]) => {
 
         const field = form.querySelector("#" + id);
-
-        if (!field) {
-            return;
-        }
+        if (!field) return;
 
         field.addEventListener("blur", () => {
             validateField(form, id, rule);
@@ -202,59 +165,113 @@ function setupValidation(form, fieldRules) {
             }
         });
 
+        if (field.tagName === "SELECT") {
+            field.addEventListener("change", () => {
+                validateField(form, id, rule);
+            });
+        }
     });
-
 }
-
 
 function validateForm(form, fieldRules) {
 
     let firstInvalid = null;
 
     Object.entries(fieldRules).forEach(([id, rule]) => {
-
         const valid = validateField(form, id, rule);
 
         if (!valid && !firstInvalid) {
             firstInvalid = form.querySelector("#" + id);
         }
-
     });
 
     if (firstInvalid) {
         firstInvalid.focus();
-
-        showStatus(
-            form,
-            "Please fix the highlighted fields and try again.",
-            "error"
-        );
-
+        showStatus(form, "Please fix the highlighted fields and try again.", "error");
         return false;
     }
 
     return true;
 }
 
-
 function getValue(form, id) {
     const field = form.querySelector("#" + id);
-
     return field ? field.value.trim() : "";
 }
 
 
 /* =========================================================
-   CONTACT FORM - WEB3FORMS
+   SHARED SUBMIT HANDLER (Web3Forms)
+   ========================================================= */
+
+function handleSubmit(form, fieldRules, messages) {
+
+    form.addEventListener("submit", async event => {
+
+        event.preventDefault();
+
+        if (!validateForm(form, fieldRules)) return;
+
+        const button = form.querySelector("button[type='submit']");
+        if (!button) return;
+
+        const originalText = button.textContent.trim();
+
+        button.disabled = true;
+        button.textContent = "Sending...";
+        showStatus(form, messages.sending, "loading");
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: { Accept: "application/json" },
+                body: new FormData(form)
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+
+                const firstName = getValue(form, "name").split(" ")[0];
+
+                showStatus(form, `Thank you, ${firstName}! ${messages.success}`, "success");
+
+                form.reset();
+                form.querySelectorAll("input, textarea, select").forEach(clearError);
+
+            } else {
+                showStatus(
+                    form,
+                    messages.failure + " " +
+                    (result.message || "Please check your Web3Forms settings and try again."),
+                    "error"
+                );
+            }
+
+        } catch (error) {
+            console.error("Web3Forms error:", error);
+            showStatus(
+                form,
+                "A network error occurred. Please check your internet connection and try again.",
+                "error"
+            );
+
+        } finally {
+            button.disabled = false;
+            button.textContent = originalText;
+        }
+    });
+}
+
+
+/* =========================================================
+   CONTACT FORM
    ========================================================= */
 
 function setupContactForm() {
 
-    const form = document.querySelector(".contact-form form");
-
-    if (!form) {
-        return;
-    }
+    const form = document.getElementById("contactForm");
+    if (!form) return;
 
     const fieldRules = {
         name: rules.name,
@@ -265,103 +282,22 @@ function setupContactForm() {
 
     setupValidation(form, fieldRules);
 
-    form.addEventListener("submit", async event => {
-
-        event.preventDefault();
-
-        if (!validateForm(form, fieldRules)) {
-            return;
-        }
-
-        const button = form.querySelector("button[type='submit']");
-
-        if (!button) {
-            return;
-        }
-
-        const originalText = button.textContent;
-
-        button.disabled = true;
-        button.textContent = "Sending...";
-
-        showStatus(form, "Sending your message...", "loading");
-
-        try {
-
-            // Read the access key and all form fields.
-            const formData = new FormData(form);
-
-            const response = await fetch(
-                "https://api.web3forms.com/submit",
-                {
-                    method: "POST",
-                    body: formData
-                }
-            );
-
-            const result = await response.json();
-
-            if (response.ok && result.success) {
-
-                showStatus(
-                    form,
-                    "Thank you, " +
-                    getValue(form, "name").split(" ")[0] +
-                    "! Your message has been sent successfully. We will get back to you soon.",
-                    "success"
-                );
-
-                form.reset();
-
-                // Clear any remaining validation styles.
-                form.querySelectorAll("input, textarea").forEach(field => {
-                    clearError(field);
-                });
-
-            } else {
-
-                showStatus(
-                    form,
-                    "Your message could not be sent. " +
-                    (result.message || "Please check your Web3Forms settings and try again."),
-                    "error"
-                );
-
-            }
-
-        } catch (error) {
-
-            console.error("Web3Forms error:", error);
-
-            showStatus(
-                form,
-                "A network error occurred. Please check your internet connection and try again.",
-                "error"
-            );
-
-        } finally {
-
-            button.disabled = false;
-            button.textContent = originalText;
-
-        }
-
+    handleSubmit(form, fieldRules, {
+        sending: "Sending your message...",
+        success: "Your message has been sent successfully. We will get back to you soon.",
+        failure: "Your message could not be sent."
     });
-
 }
 
 
-// =========================================================
-// HAIR CONSULTATION FORM - WEB3FORMS
-// =========================================================
+/* =========================================================
+   HAIR CONSULTATION FORM
+   ========================================================= */
 
 function setupConsultationForm() {
 
-    const form = document.querySelector(".consultation-form");
-
-    if (!form) {
-        return;
-    }
+    const form = document.getElementById("consultationForm");
+    if (!form) return;
 
     const fieldRules = {
         name: rules.name,
@@ -375,92 +311,11 @@ function setupConsultationForm() {
 
     setupValidation(form, fieldRules);
 
-    form.addEventListener("submit", async event => {
-
-        event.preventDefault();
-
-        if (!validateForm(form, fieldRules)) {
-            return;
-        }
-
-        const button = form.querySelector("button[type='submit']");
-
-        if (!button) {
-            return;
-        }
-
-        const originalText = button.textContent.trim();
-
-        button.disabled = true;
-        button.textContent = "Sending...";
-
-        showStatus(form, "Sending your consultation...", "loading");
-
-        try {
-
-            // Send all form fields to Web3Forms.
-            const formData = new FormData(form);
-
-            const response = await fetch(
-                "https://api.web3forms.com/submit",
-                {
-                    method: "POST",
-                    body: formData
-                }
-            );
-
-            const result = await response.json();
-
-            if (response.ok && result.success) {
-
-                const firstName = getValue(form, "name")
-                    .split(" ")[0];
-
-                showStatus(
-                    form,
-                    `Thank you, ${firstName}! Your consultation has been sent successfully. We will review your details and contact you with suitable product recommendations.`,
-                    "success"
-                );
-
-                form.reset();
-
-                form.querySelectorAll(
-                    "input, textarea, select"
-                ).forEach(field => {
-                    clearError(field);
-                });
-
-            } else {
-
-                showStatus(
-                    form,
-                    "Your consultation could not be sent. " +
-                    (result.message ||
-                    "Please check your Web3Forms access key and try again."),
-                    "error"
-                );
-
-            }
-
-        } catch (error) {
-
-            console.error("Web3Forms consultation error:", error);
-
-            showStatus(
-                form,
-                "A network error occurred. Please check your internet connection and try again.",
-                "error"
-            );
-
-        } finally {
-
-            button.disabled = false;
-            button.textContent = originalText;
-
-        }
-
+    handleSubmit(form, fieldRules, {
+        sending: "Sending your consultation...",
+        success: "Your consultation has been sent successfully. We will review your details and contact you with suitable product recommendations.",
+        failure: "Your consultation could not be sent."
     });
-
 }
 
 
@@ -474,9 +329,7 @@ function filterProducts() {
     const cards = document.querySelectorAll(".product-card");
     const container = document.querySelector(".product-container");
 
-    if (!input || cards.length === 0 || !container) {
-        return;
-    }
+    if (!input || cards.length === 0 || !container) return;
 
     const words = input.value
         .toLowerCase()
@@ -487,38 +340,27 @@ function filterProducts() {
     let visible = 0;
 
     cards.forEach(card => {
-
         const text = card.textContent.toLowerCase();
-
         const matches = words.every(word => text.includes(word));
 
         card.style.display = matches ? "" : "none";
-
-        if (matches) {
-            visible++;
-        }
-
+        if (matches) visible++;
     });
 
     let note = document.getElementById("noResults");
 
     if (!note) {
-
         note = document.createElement("p");
         note.id = "noResults";
         note.setAttribute("role", "status");
-
         note.style.cssText =
             "text-align:center; color:darkgreen; font-weight:bold; margin:20px 0;";
-
         container.insertAdjacentElement("afterend", note);
-
     }
 
     note.textContent = visible === 0
         ? `No products found for "${input.value.trim()}". Try another word.`
         : "";
-
 }
 
 
@@ -527,29 +369,18 @@ function filterProducts() {
    ========================================================= */
 
 function openLightbox(src, alt) {
-
     const modal = document.getElementById("lightboxModal");
     const image = document.getElementById("lightboxImg");
-
-    if (!modal || !image) {
-        return;
-    }
+    if (!modal || !image) return;
 
     image.src = src;
     image.alt = alt || "";
-
     modal.style.display = "block";
 }
 
-
 function closeLightbox() {
-
     const modal = document.getElementById("lightboxModal");
-
-    if (modal) {
-        modal.style.display = "none";
-    }
-
+    if (modal) modal.style.display = "none";
 }
 
 
@@ -559,52 +390,33 @@ function closeLightbox() {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Contact form uses Web3Forms.
     setupContactForm();
-
-    // Consultation form uses EmailJS.
     setupConsultationForm();
 
-    // Product search.
+    // Product search
     const searchInput = document.getElementById("searchInput");
-
     if (searchInput) {
         searchInput.addEventListener("input", filterProducts);
     }
 
-    // Product image lightbox.
+    // Lightbox: open on image click
     document.querySelectorAll(".product-card img").forEach(image => {
-
         image.style.cursor = "zoom-in";
-
         image.addEventListener("click", () => {
             openLightbox(image.src, image.alt);
         });
-
     });
 
-    // Close lightbox by clicking outside the image.
+    // Lightbox: close on dark background click
     const modal = document.getElementById("lightboxModal");
-
     if (modal) {
-
         modal.addEventListener("click", event => {
-
-            if (event.target === modal) {
-                closeLightbox();
-            }
-
+            if (event.target === modal) closeLightbox();
         });
-
     }
 
-    // Close lightbox with Escape.
+    // Lightbox: close with Escape
     document.addEventListener("keydown", event => {
-
-        if (event.key === "Escape") {
-            closeLightbox();
-        }
-
+        if (event.key === "Escape") closeLightbox();
     });
-
 });
