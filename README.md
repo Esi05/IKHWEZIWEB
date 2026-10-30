@@ -507,4 +507,4 @@ Fixed
 Removed stray error.textContent = valid ? ... lines that caused syntax errors in showError, the input listener, the contact showStatus call and the consultation rules object.
 Closed setupContactForm, which was left open and swallowed the consultation function.
 Removed the duplicate closeLightbox that used an undefined modal.
-Removed the duplicate search box (id="searchInput" was used twice) and the onkeyup="filterProducts()" attribute.
+Removed the duplicate search box (id="searchInput" was used twice) and the onkeyup="filterProducts()" attribute. 
