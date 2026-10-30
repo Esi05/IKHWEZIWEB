@@ -1849,6 +1849,21 @@ footer {
     gap: 25px;
 
     align-items: stretch;
+    .error-message {
+    color: red !important;
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 4px;
+}
+
+.input-error {
+    border: 2px solid red !important;
+}
+
+.form-status {
+    color: red;
+    font-weight: bold;
+}
 }
 
 
@@ -1936,6 +1951,21 @@ footer {
     border-radius: 12px;
 
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    .error-message {
+    color: red !important;
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 4px;
+}
+
+.input-error {
+    border: 2px solid red !important;
+}
+
+.form-status {
+    color: red;
+    font-weight: bold;
+}
 }
 
 
@@ -3353,4 +3383,22 @@ body {
         font-size: 18px;
     }
 }
+.zoomable { cursor: zoom-in; }
 
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.lightbox img { max-width: 90%; max-height: 90%; }
+.close {
+  position: absolute;
+  top: 20px; right: 30px;
+  color: #fff;
+  font-size: 40px;
+  cursor: pointer;
+}
