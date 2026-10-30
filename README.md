@@ -491,3 +491,20 @@ The IKHWEZI Hair Care Products website demonstrates the application of HTML, CSS
 
 The project also demonstrates responsive design, source-code organisation, version control, testing and online deployment. Further improvements can be made by testing all interactive features, improving accessibility and incorporating feedback from users.
 
+Changelog
+Added
+Image lightbox on the Products page: click to enlarge, close with the x, the dark background or the Esc key.
+JavaScript validation for the Contact and Consultation forms.
+Red validation text and red input borders for invalid fields.
+Red status message for failed submissions, green for success.
+"No products found" message when a product search has no results.
+Changed
+Both forms now share one handleSubmit function instead of duplicated Web3Forms code.
+Contact form selector changed to #contactForm to match the HTML.
+Consultation form now uses Web3Forms, so the unused EmailJS settings were removed.
+Product search moved from an inline <script> in products.html into script.js.
+Fixed
+Removed stray error.textContent = valid ? ... lines that caused syntax errors in showError, the input listener, the contact showStatus call and the consultation rules object.
+Closed setupContactForm, which was left open and swallowed the consultation function.
+Removed the duplicate closeLightbox that used an undefined modal.
+Removed the duplicate search box (id="searchInput" was used twice) and the onkeyup="filterProducts()" attribute.
